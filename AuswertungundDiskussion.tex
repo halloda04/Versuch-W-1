@@ -94,6 +94,89 @@ Daraus ergibt sich nun der Wasserwert des Dewar-Gefäßes für das 60°C warmes 
 
 Die Zwei Wasserwerte sind jeweils in der Fehlerschranke enthalte. Diese ist jedoch unrealistisch hoch. Dies liegt and dem sehr konservativen Fehler für $T_W$, $T_W$ und $T_M$ von $\pm 1$°C bzw $\pm 1,5$°C. Trozdem ist wirkt das ergebniss realistisch da der relativer Fehler der zwei werte  $\frac{\omega_\mathrm{1}}{\omega_\mathrm{2}}$ mit 7,5 \% gering ist.
 
+\subsection{Elektrisches Wärmeäquivalent}
 
+Nun soll das elektrische Wärmeäquivalent bestimmt werden. Dieses ist gleich dem Zahlenwert der spezifischen Wärmekapazität $c_\mathrm{W}$ von Wasser. Dabei wird elektrische Energie, welche durch Gleichung \ref{elektrische energei} gegeben ist, in Wärmeenergie, welche durch Gleichung \ref{wärme energie} gegeben ist, umgewandelt. Kombiniert man beide Gleichungen und stellt nach $c_\mathrm{W}$ um, so ergibt sich
 
+\begin{equation}
+    c_W = \frac{U I \cdot t}{(m + w) T_\Delta}
+    \label{eq:cw}
+\end{equation}
 
+für die spezifische Wärmekapazität und somit auch für das elektrische Wärmeäquivalent. Dabei ist $t$ die Dauer, über die Strom geflossen ist und somit das Wasser erwärmt wurde. $U$ die angelegte Spannung welche fast konstant ist, im folgenden wird der Mittelwert. Gleich wurde mit der Stromstärke $I$ verfahren. Auch Für $\omega$ wurde der Mittelwert der oben errechneten Werte genommen. Der Fehler von $c_\mathrm{W}$ ist dabei durch
+
+\begin{equation}
+\begin{split}
+\Delta c_W &= \pm \left( \left|\frac{\partial c_W}{\partial U}\right|\Delta U + \left|\frac{\partial c_W}{\partial I}\right|\Delta I + \left|\frac{\partial c_W}{\partial m}\right|\Delta m + \left|\frac{\partial c_W}{\partial w}\right|\Delta w + \left|\frac{\partial c_W}{\partial T_\Delta}\right|\Delta T_\Delta \right) \\
+&= \pm \frac{t}{T_\Delta (m + w)} \left( I \cdot \Delta U + U \cdot \Delta I + \frac{U I}{T_\Delta} \cdot \Delta T_\Delta + \frac{U I}{m + w} \cdot (\Delta m + \Delta w) \right)
+\label{eq:cwfehler}
+\end{split}
+\end{equation}
+
+gegeben. Wobei für den Fehler von $\omega$ nicht der oben errechnete Fehler verwendet wurde, sondern die Differenz der beiden errechneten Werte, also $\Delta \omega = 2{,}17\,\mathrm{g}$. Dies liegt daran das der errechnete Fehler als unrealistisch eingestuft wurde. Für die Temperaturdifferenz $\Delta T$ wurde ein weiterer Zwickelabgleich verwendet, dieser ist in Abbildung \ref{bi:zwickelaufgabe2} zu sehen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Aufgabe2zwickel.png}
+    \caption{Grafische Auswertung des Zwickelabgleichs zur Bestimmung der Temperaturdifferenz $\Delta T$. Die Ausgleichsgeraden wurden mittels \texttt{numpy.polyfit} erstellt. Der ideale Mischzeitpunkt wurde mittels Augenmaß bestimmt.}
+    \label{bi:zwickelaufgabe2}
+\end{figure}
+
+Bei dieser Abbildung ist auffällig, dass die Ausgleichsgerade des kalten Wassers eine positive Steigung hat. Der Grund hierfür ist vermutlich, dass das Dewargefäß noch vom letzten Mischversuch warm war und somit die verbliebene Wärme an das kalte Wasser abgegeben hat. Der Zeitpunkt $t^*$ wurde auf $90\,\mathrm{s}$ geschätzt. Daraus folgen die Temperaturen $T_\mathrm{K} = 24{,}06\,^\circ\mathrm{C}$ und $T_\mathrm{M} = 36{,}86\,^\circ\mathrm{C}$. Woraus $\Delta T = 12,8\,^\circ\mathrm{C}$ folgt.
+
+Da sich oben ein Fehler von $1\,^\circ\mathrm{C}$ als unrealistisch herausgestellt hat, wird hier nun $\Delta T_\mathrm{K} = \Delta T_\mathrm{W} = 0{,}5\,^\circ\mathrm{C}$ verwendet. Mit den Formeln \ref{eq:cw} und \ref{eq:cwfehler} ergibt sich eine spezifische Wärmekapazität von Wasser von
+
+\begin{equation}
+    c_\mathrm{W} = (3{,}41 \pm 0{,}60)\,\frac{\mathrm{J}}{\mathrm{g\,K}} .
+\end{equation}
+
+Der Literaturwert aus \cite{Tipler} ist $4{,}184\,\frac{\mathrm{J}}{\mathrm{g\,K}}$. Somit ist der Literaturwert nicht mehr in der Fehlerschranke enthalten. Außerdem ist der relative Fehler mit $\frac{c_\mathrm{W}}{c_\mathrm{W,L}} = 22{,}7\,\%$ recht hoch. Da hier viele Größen bei der Bestimmung der spezifischen Wärmekapazität eine Rolle spielen, gibt es zahlreiche Fehlerquellen.
+
+Ein Grund könnte sein, dass man, wie in Abbildung \ref{bi:zwickelaufgabe2} zu sehen ist, dass das Dewargefäß mit dem kalten Wasser vermutlich noch Wärme enthält. Da der errechnete Wasserwert davon ausgeht, dass dies nicht der Fall ist, könnte der verwendete Wasserwert hier zu groß sein. Da die spezifische Wärmekapazität indirekt proportional zum Wasserwert ist, könnte dies das zu kleine Ergebnis für die spezifische Wärmekapazität erklären. Zum anderen wurde bei den Temperaturen $T_\mathrm{K}$ und $T_\mathrm{M}$ von einem deutlich kleineren Fehler ausgegangen, was zumindest erklären könnte, warum die Fehlerschranke den Literaturwert nicht beinhaltet. Wie Schon oben hätten mehr Messpunkte zu einem besseren $t^*$ führen können.
+
+\newpage
+\subsection{Molare Wärmekapazität}
+
+Abschließend soll mit dem Ergebnis aus Aufgabe 2 die molare Wärmekapazität $c_{\mathrm{W,mol}}$ bestimmt werden. Diese ist durch
+
+\begin{equation}
+    c_{\mathrm{W, mol}} = c_\mathrm{W} \cdot M
+\end{equation}
+
+gegeben. Der Fehler ist durch
+
+\begin{equation}
+\Delta c_{\mathrm{W,mol}} = \pm \left( \frac{\partial c_{\mathrm{W,mol}}}{\partial c_W} \, \Delta c_\mathrm{W} \right) = \pm M \cdot \Delta c_\mathrm{W}
+\end{equation}
+
+gegeben. Dabei wird der Literaturwert von $M$ als fehlerfrei angesehen. Aus \cite{Tipler} ist die molare Wärmekapazität von Wasser durch
+$c_{\mathrm{W,mol,l}} = 75{,}2\,\mathrm{J\,mol^{-1}\,K^{-1}}$ gegeben. Mit den oben errechneten Werten und einer molaren Masse von $M = 18{,}015\,\mathrm{g\,mol^{-1}}$ aus \cite{crc} ergibt sich für die molare Wärmekapazität
+
+\begin{equation}
+    c_{\mathrm{W, mol}} = (61{,}43 \pm 10{,}81)\,\frac{\mathrm{J}}{\mathrm{mol\,K}} .
+\end{equation}
+
+Dieses Ergebnis enthält, wie bereits oben, den Literaturwert nicht in der Fehlerschranke. Das macht soweit Sinn, das hier nur eine fehlerfreie Konstante dazu multipliziert wurde. Die Fehlerdiskussion entfällt an dieser Stelle, da keine experimentellen Tätigkeiten zur Bestimmung durchgeführt wurden.
+
+Nun soll das soeben bestimmte Ergebnis der molaren Wärmekapazität mithilfe von zwei Gesetzen der Wärmekapazität aus der Thermodynamik eingeordnet werden. Wie bereits in den Grundlagen erläutert, setzt sich nach der Kopp-Neumann-Regel die Wärmekapazität einer chemischen Verbindung aus den Beiträgen der in ihr enthaltenen Elemente zusammen. Die einzelnen Anteile gehen dabei entsprechend ihres Massenanteils im Molekül in die Gesamtwärmekapazität ein. Für Wasser ergibt sich auf diese Weise eine erwartete molare Wärmekapazität von
+
+\[
+c_{W,\mathrm{Kopp}} \approx \SI{75}{\joule\per\mole\per\kelvin}.
+\]
+
+Das experimentell bestimmte Ergebnis stimmt mit diesem Literaturwert gut überein, insbesondere wenn berücksichtigt wird, dass der Wasserwert des verwendeten Kalorimeters möglicherweise leicht überschätzt wurde.
+
+Aus der statistischen Physik ist bekannt, dass die mittlere molare Wärmekapazität eines Systems durch
+
+\[
+c_{\mathrm{mol}} = \frac{f}{2} R
+\]
+
+gegeben ist, wobei $f$ die Anzahl der Freiheitsgrade und $R$ die universelle Gaskonstante bezeichnet. Für Festkörper mit $f = 6$ Freiheitsgraden ergibt sich somit eine molare Wärmekapazität von
+
+\[
+c_{\mathrm{mol}} = 3R \approx \SI{25}{\joule\per\mole\per\kelvin}.
+\]
+
+Dieser Zusammenhang ist als Dulong-Petit-Gesetz bekannt.
+Mit diesem Wert stimmt das experimentelle Ergebnis nicht überein. Dies entspricht jedoch den Erwartungen, da das Dulong-Petit-Gesetz ausschließlich für Festkörper gilt. Da Wasser bei Raumtemperatur keine feste Phase bildet, ist ein direkter Vergleich mit diesem Gesetz nicht sinnvoll.
