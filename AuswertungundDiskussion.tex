@@ -1,29 +1,26 @@
 \section{Auswertung}
 
 \subsection{Zwickelabgleich}
-Um den Wasserwert des Dewar-Gefäß zu ermitteln wird ein Zwickelabgleich durchgeführt.
+Um den Wasserwert des Dewar-Gefäßes zu ermitteln, wird ein Zwickelabgleich durchgeführt.
 
-
-Der Wasserwert \omega~wird durch die Formel
+Der Wasserwert $\omega$ wird durch die Formel
 \begin{equation}
     \omega = \frac{m_W \cdot \left(T_W-T_m\right)}{T_m-T_K}-m_K
     \label{Wasserwert1}
 \end{equation}
-berechnet.  Hierbei beschreibt $m_W$ das Gewicht des warmen Wassers und $m_K$ das Gewicht des kalten Wassers. Aus Abbildung \ref{bi:zwickel60} bzw. \ref{bi:zwickel70} können dann mithilfe der extrapolierten Ausgleichsgeraden die Werte für die Temperaturen abgelesen werden. Diese sind in Tabelle \ref{tab:messwerte} zu sehen.
-
-
+berechnet. Hierbei beschreibt $m_W$ das Gewicht des warmen Wassers und $m_K$ das Gewicht des kalten Wassers. Aus Abbildung \ref{bi:zwickel60} bzw. \ref{bi:zwickel70} können mithilfe der extrapolierten Ausgleichsgeraden die Werte für die Temperaturen abgelesen werden. Diese sind in Tabelle \ref{tab:messwerte} zu sehen.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Zwicklerzuklein60.png}
-    \caption{Grafische Auswertung (60°C) des Zwickelabgleichs zur Bestimmung des Wasserwerts des Kalorimeters. Die Ausgleichsgeraden wurden mittels Numpy.polyfit erstellt. Der Ideale Mischzeitpunkt wurde mittels Augenmaß gefunden.} 
+    \caption{Grafische Auswertung (60°C) des Zwickelabgleichs zur Bestimmung des Wasserwerts des Kalorimeters. Die Ausgleichsgeraden wurden mittels Numpy.polyfit erstellt. Der ideale Mischzeitpunkt wurde mittels Augenmaß gefunden.} 
     \label{bi:zwickel60}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth, keepaspectratio]{Bilder/Zwicklerzuklein70.png}
-    \caption{Grafische Auswertung (70°C) des Zwickelabgleichs zur Bestimmung des Wasserwerts des Kalorimeters. Die Ausgleichsgeraden wurden mittels Numpy.polyfit erstellt. Der Ideale Mischzeitpunkt wurde mittels Augenmaß gefunden.} 
+    \caption{Grafische Auswertung (70°C) des Zwickelabgleichs zur Bestimmung des Wasserwerts des Kalorimeters. Die Ausgleichsgeraden wurden mittels Numpy.polyfit erstellt. Der ideale Mischzeitpunkt wurde mittels Augenmaß gefunden.} 
     \label{bi:zwickel70}
 \end{figure}
 
@@ -35,24 +32,19 @@ berechnet.  Hierbei beschreibt $m_W$ das Gewicht des warmen Wassers und $m_K$ da
         \toprule
         Größe & Einheit & Teil 1 (60°C) & Teil 2 (70°C) \\
         \midrule
-        Masse kalten Wassers $m_K$ & g & $51,0 \pm 0,1$ & $4,8 \pm 0,1$ \\
+        Masse kalten Wassers $m_K$ & g & $51,0 \pm 0,1$ & $49,8 \pm 0,1$ \\
         Masse warmen Wassers $m_W$ & g & $120,8 \pm 0,1$ & $120,0 \pm 0,1$ \\
-        Temperatur warmes Wasser $T_W$ & °C & 51,8 $\pm 1,5$°C & 56,4 $\pm 1,5$°C \\
-        Temperatur kaltes Wasser $T_K$ & °C & 23,6 $\pm 1$°C & 24,5 $\pm 1$°C\\
-        Mischtemperatur $T_m$ & °C & 40,7$\pm 1$°C & 43,7 $\pm 1$°C\\
+        Temperatur warmes Wasser $T_W$ & °C & $51,8 \pm 1,5$ & $56,4 \pm 1,5$ \\
+        Temperatur kaltes Wasser $T_K$ & °C & $23,6 \pm 1$ & $24,5 \pm 1$ \\
+        Mischtemperatur $T_m$ & °C & $40,7 \pm 1$ & $43,7 \pm 1$ \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Beim der Ersten Durchführung wurde der idealisierte Mischzeitpunkt $t^*$ auf 15s geschätzt wobei diese schätzung recht ungenau ist, da zum einen die Größe der zwei Flächen geschtezt werden muss, was dadurch erschwert wird, dass es zu wenig Messpunkte in diesem Zeitraum gibt. Das sorgt dafür das nicht ganz klar ist wie die Flächen ausehen. Zum anderen sind die Ausgleichgeraden für die drei Temperaturen ebenfalls Fehlerbehaftet. Dies trägt enbenfalls dazu bei das die Flächen nicht wohl difeniert sind. Da sich dieser Zeitpunkt stark auf $T_W$, $T_W$ und $T_M$ auswirkt wurde hier ein recht hoher fehler von $\pm 1$°C angenommen. Für $T_W$ wurde sogar ein Fehler von $\pm 1$°C angenommen, da die ausgleichgerade hier die stärkste steigung hat und somit eine änderung von $t^*$ sich hier am meisten auswirkt. Der Fehler der Massen kommt von dem Ablesefehler der Feinwage.
-
-
-
-
-
+Bei der ersten Durchführung wurde der idealisierte Mischzeitpunkt $t^*$ auf $15\,\mathrm{s}$ geschätzt. Diese Schätzung ist jedoch recht ungenau, da zum einen die Größe der beiden Flächen geschätzt werden muss, was dadurch erschwert wird, dass es in diesem Zeitraum zu wenige Messpunkte gibt. Dadurch ist nicht eindeutig klar, wie die Flächen aussehen. Zum anderen sind die Ausgleichsgeraden für die drei Temperaturen ebenfalls fehlerbehaftet. Dies trägt ebenfalls dazu bei, dass die Flächen nicht eindeutig definiert sind. Da sich dieser Zeitpunkt stark auf $T_W$, $T_K$ und $T_M$ auswirkt, wurde hier ein relativ hoher Fehler von $\pm 1$°C angenommen. Für $T_W$ wurde sogar ein Fehler von $\pm 1{,}5$°C angenommen, da die Ausgleichsgerade hier die stärkste Steigung besitzt und sich eine Änderung von $t^*$ hier am stärksten auswirkt. Der Fehler der Massen resultiert aus dem Ablesefehler der Feinwaage.
 
 \newpage
-Grundsätzlich gilt für den Fehler des Wasserwerts 
+Grundsätzlich gilt für den Fehler des Wasserwerts:
 \begin{equation}
 \begin{aligned}
 \Delta \omega = \pm \Big(
@@ -65,7 +57,7 @@ Grundsätzlich gilt für den Fehler des Wasserwerts
 \end{aligned}
 \end{equation}
 
-Differenzieren und vereinfachen ergibt schließlich:
+Differenzieren und Vereinfachen ergibt schließlich:
 \begin{equation}
 \begin{aligned}
 \Delta \omega
@@ -81,18 +73,17 @@ Differenzieren und vereinfachen ergibt schließlich:
 \end{aligned}
 \end{equation}
 
-
-
-Daraus ergibt sich nun der Wasserwert des Dewar-Gefäßes für das 60°C warmes Wasser aus Gleichung \ref{Wasserwert} und \ref{Fehlerwasserwert}
+Daraus ergibt sich nun der Wasserwert des Dewar-Gefäßes für das $\SI{60}{\degreeCelsius}$ warme Wasser aus Gleichung \ref{Wasserwert1} und \ref{Fehlerwasserwert}:
 \begin{equation}
-(\omega_\mathrm{1} = 27,41 \pm 27) \text{g}.
+\omega_\mathrm{1} = (27,41 \pm 27)\,\mathrm{g}.
 \end{equation}
 
 \begin{equation}
-    (\omega_\mathrm{2} = 29,58 \pm 24) \text{g}.
+\omega_\mathrm{2} = (29,58 \pm 24)\,\mathrm{g}.
 \end{equation}
 
-Die Zwei Wasserwerte sind jeweils in der Fehlerschranke enthalte. Diese ist jedoch unrealistisch hoch. Dies liegt and dem sehr konservativen Fehler für $T_W$, $T_W$ und $T_M$ von $\pm 1$°C bzw $\pm 1,5$°C. Trozdem ist wirkt das ergebniss realistisch da der relativer Fehler der zwei werte  $\frac{\omega_\mathrm{1}}{\omega_\mathrm{2}}$ mit 7,5 \% gering ist.
+Die beiden Wasserwerte sind jeweils innerhalb der Fehlerschranke enthalten. Diese ist jedoch unrealistisch hoch. Dies liegt an dem sehr konservativen Fehler für $T_W$, $T_K$ und $T_M$ von $\pm 1$°C bzw. $\pm 1{,}5$°C. Trotzdem wirkt das Ergebnis realistisch, da der relative Fehler der beiden Werte mit $\frac{\omega_\mathrm{1}}{\omega_\mathrm{2}} = 7{,}5\,\%$ gering ist.
+
 
 \subsection{Elektrisches Wärmeäquivalent}
 
